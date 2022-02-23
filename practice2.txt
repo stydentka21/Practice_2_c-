@@ -1,0 +1,73 @@
+Задание 2
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	setlocale(0, "");
+	int number = 0;
+	string word;
+	cout << "Введите слово\n";
+	cin >> word;
+	string current;
+	cout << "Введите строку\n";
+	while (cin >> current)
+	{
+		++number;
+		if (word == current)
+		{
+			cout << current << " " <<number<<'\n';
+		}
+	}
+	return 0;
+}
+
+
+задание 3
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+int from_binary_to_decimal(string number)
+{
+	int result = 0;
+	for (int i = number.size() - 1; i >= 0; i--) {
+		result += pow(2, number.size() - i - 1) * (number[i] - '0');
+	}
+	return result;
+}
+int main()
+{
+	string number;
+	cin >> number;
+	int decimal_number = from_binary_to_decimal(number);
+	cout << "Decimal: " << decimal_number << '\n';
+	return 0;
+}
+
+задание 4
+#include<iostream>
+#include<cmath>
+using namespace std;
+string from_decimal_to_binary(int number)
+{
+	string result = "";
+	while (number > 0) {
+		char value = (number % 2) + '0';
+		result.push_back(value);
+		number /= 2;
+	}
+
+	reverse(result.begin(), result.end());
+	return result;
+
+}
+int main()
+{
+	int number;
+	cout << "binary number: ";
+	cin >> number;
+	string binary_number = from_decimal_to_binary(number);
+	cout << "binary: " << binary_number << '\n';
+	return 0;
+}
